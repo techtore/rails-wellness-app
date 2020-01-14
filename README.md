@@ -23,14 +23,3 @@ Things you may want to cover:
 
 * ...
 
-User
-has many Entries
-has many topics through through
-
-Topic 
-has many users
-has many users through entries
-
-entry 
-belongs to user 
-belongs to topic
