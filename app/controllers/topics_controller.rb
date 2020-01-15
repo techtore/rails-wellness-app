@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
     def show
-        @topic = Topic.find_by(title: params[:title])
+        @topic = Topic.find_by(id: params[:id])
     end
 
     def new
@@ -10,11 +10,10 @@ class TopicsController < ApplicationController
     end 
 
     def create
-        topic = Topic.find_by(title: params[:title])
-        if !topic 
-            topic = topic.create(topic_params)
-        end 
-        redirect_to topic_path(topic)
+        topic = Topic.new(id: params[:id])
+        if topic.save 
+            redirect_to topic_path(topic)
+        end       
     end
 
     def edit
@@ -25,6 +24,6 @@ class TopicsController < ApplicationController
 
     private
     def topic_params
-        params.require(:topics).permit(:title, entries_attributes:[:date, :content])
+        params.require(:topics).permit(:title, entries_attributes:[:date, :content, :topic_id, :user_id])
     end
 end
