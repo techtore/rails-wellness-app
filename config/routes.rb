@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_scope :user do 
     get 'login', to: "devise/sessions#new"
     get 'signup', to: "devise/registrations#new"
+    get 'signout', to: "devise/sessions#destroy"
   end
 
   root "application#home"
