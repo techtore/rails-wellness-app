@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   end
 
   root "application#home"
-  resources :user do 
+
+  resources :users do 
     resources :topics
   end
 

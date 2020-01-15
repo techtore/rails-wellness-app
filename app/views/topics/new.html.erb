@@ -1,0 +1,12 @@
+<h1>Create a New Topic and Entry</h1>
+<%= form_for @topic do |f|%>
+<%= f.label :title%>
+<%=f.text_field :title%><br>
+    <%=f.fields_for :entries, @entry do |entry_form|%>
+        <%= entry_form.label :date%>
+        <%= entry_form.date_field :date%><br>
+        <%= entry_form.label :content%>
+        <%= entry_form.text_area :content%><br>
+    <%end%>
+<%= f.submit "Create New Topic and Entry"%>
+<%end%>
