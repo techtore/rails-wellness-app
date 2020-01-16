@@ -1,5 +1,0 @@
-<h1><%= @topic.title %></h1><br>
-
-<%=@topic.entries.each do |entry|%>
-<%= link_to entry.date, entry_path%><br>
-<%end%>

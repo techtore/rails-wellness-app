@@ -1,7 +1,12 @@
 class EntriesController < ApplicationController
-    def show 
+    def index 
+        @user = current_user
+        @entries = @user.entries.all
+    end
+
+    def show
         @topic = Topic.find_by(id: params[:id])
-        @entries = @topic.entries.all
+        @entry = @topic.entry.find_by(date: params[:date])
     end
 
     def new
@@ -11,8 +16,7 @@ class EntriesController < ApplicationController
 
     def create
       @entry = Entry.new(entry_params)
-      @entry.user_id = session[:user_id]
-      if @entry.save!
+      if @entry.save
         redirect_to entry_path(@entry)
       else 
         render :new
