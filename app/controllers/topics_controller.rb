@@ -7,15 +7,20 @@ class TopicsController < ApplicationController
     end
 
     def show
-      
+      @topic = Topic.find_by(id: params[:id])
     end
 
     def new
-       
+       @topic = Topic.new
     end 
 
     def create
-         
+       topic = Topic.new(topic_params)
+       if topic.save
+        redirect_to topic  
+       else 
+        render :new
+       end
     end
 
     def edit

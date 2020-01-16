@@ -5,15 +5,18 @@ class EntriesController < ApplicationController
     end
 
     def new
-        @topic = Topic.new
-        @entry = @topic.entries.build
+        @entry = Entry.new
+        @entry.build_topic
     end
 
     def create
-        topic = Topic.new(id: params[:id])
-        if topic.save 
-            redirect_to entry
-        end  
+      @entry = Entry.new(entry_params)
+      @entry.user_id = session[:user_id]
+      if @entry.save!
+        redirect_to entry_path(@entry)
+      else 
+        render :new
+      end
     end
 
     def edit
@@ -27,6 +30,7 @@ class EntriesController < ApplicationController
 
     private
     def entry_params
-        params.require(:entry).permit(:date, :content, :topic_id, :user_id)
+        params.require(:entry).permit(:date, :content, :topic_id, :user_id, 
+            topic_attributes:[:title])
     end
 end
