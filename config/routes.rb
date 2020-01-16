@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     get 'signup', to: "devise/registrations#new"
     
   end
+  resources :entries
 
   resources :topics do
-    resources :entries
+    resources :entries, only: [:new, :create, :destroy, :edit, :update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
