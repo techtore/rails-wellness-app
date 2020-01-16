@@ -1,7 +1,14 @@
 class TopicsController < ApplicationController
 
+    def index
+        if current_user
+            @topics = Topic.all
+        end
+    end
+
     def show
         @topic = Topic.find_by(id: params[:id])
+        @entries = Topic.entries.all
     end
 
     def new
