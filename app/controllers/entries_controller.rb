@@ -1,15 +1,15 @@
 class EntriesController < ApplicationController
     def index 
         @user = current_user
-        @entries = @user.entries.all
+        @entries = Entries.all
     end
 
     def show
-        @topic = Topic.find_by(id: params[:id])
-        @entry = @topic.entry.find_by(date: params[:date])
+        @entry = Entry.find_by(params[:entry_id])
     end
 
     def new
+        @topic = Topic.find_by(params[:topic_id])
         @entry = Entry.new
         @entry.build_topic
     end
@@ -34,7 +34,7 @@ class EntriesController < ApplicationController
 
     private
     def entry_params
-        params.require(:entry).permit(:date, :content, :topic_id, :user_id, 
+        params.require(:entry).permit(:date, :content, :entry_id, :topic_id, :user_id, 
             topic_attributes:[:title])
     end
 end
