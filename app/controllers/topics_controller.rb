@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
-    def index
-        @topics = Topic.select('DISTINCT title')
+    def index 
+        @topics = Topic.all
     end
 
     def new

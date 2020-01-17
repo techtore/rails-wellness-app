@@ -20,6 +20,7 @@ class EntriesController < ApplicationController
         redirect_to entry_path(@entry)
       else 
         render :new
+        binding.pry
       end
     end
 
