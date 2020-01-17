@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
         @topic = Topic.find_by(id: params[:id])
         @entries = current_user.entries.my_entries 
         #add scope method for my entries in this topic
-    end
+    end 
 
     def new
        @topic = Topic.new

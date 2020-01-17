@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
 
     def show
         @entry = Entry.find_by(id: params[:id])
+        @topic = Topic.
     end
 
     def new
@@ -25,9 +26,14 @@ class EntriesController < ApplicationController
     end
 
     def edit
+      @entry = Entry.find_by(id: params[:id])
     end
 
     def update
+      @entry = Entry.update(entry_params)
+      if @entry.save
+      redirect_to entry_path(@entry)
+      end
     end
 
     def destroy

@@ -1,7 +1,9 @@
-<h1>Topics</h1>
+<h1>Topics Other Users Are Currently Focused On</h1>
 
 <%@topics.each do |topic|%>
 <%if !topic.title.nil?%>
-<li><%=link_to topic.title, topic_path(topic) %></li>
+<li><%=topic.title%></li>
+    <%end%>
 <%end%>
-<%end%>
+
+<h2>Would you like to <%= link_to "Add a New Topic", new_topic_path %>?</h2>

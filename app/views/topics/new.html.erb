@@ -1,0 +1,6 @@
+<h1>Create a new Topic for an area of wellness you'd like to focus on</h1>
+<%=form_for @topic do |f|%>
+    <%= f.label :title%>
+    <%=f.text_field :title%>
+    <%=f.submit "Create New Topic"%>
+<%end%>
