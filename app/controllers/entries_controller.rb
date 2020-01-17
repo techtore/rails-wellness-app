@@ -6,8 +6,7 @@ class EntriesController < ApplicationController
     end
 
     def show
-        @entry = Entry.find_by(id: params[:id])
-        
+        @entry = Entry.find_by(id: params[:id]) 
     end
 
     def new
@@ -19,7 +18,7 @@ class EntriesController < ApplicationController
     def create
       @entry = Entry.new(entry_params)
       if @entry.save
-        redirect_to entry_path(@entry)
+        redirect_to topic_entry_path(@entry.topic, @entry)
       else 
         render :new
       end
