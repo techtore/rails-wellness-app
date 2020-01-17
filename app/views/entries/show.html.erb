@@ -2,3 +2,4 @@
   <p><%= @entry.content%></p>
 
 <p><%=link_to "Edit this Entry", edit_entry_path%></p>
+<%= button_to "delete", @entry, :method => :delete %>

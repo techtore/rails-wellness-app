@@ -43,9 +43,9 @@ class EntriesController < ApplicationController
 
     def destroy
       @entry = Entry.find_by(id: params[:id])
-      @entry.destroy entries_path(@entry)
+      @entry.destroy 
 
-      redirect_to 
+      redirect_to entries_path(@entry)
     end
 
     private

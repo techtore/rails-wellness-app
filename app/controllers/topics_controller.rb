@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
     def index
-        @topics = Topic.aplha_order
+        @topics = Topic.all
     end
 
     def show
