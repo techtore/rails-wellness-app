@@ -1,5 +1,4 @@
-<h1><%= @entry.topic.title%></h1><br>
-<p><%=@entry.date.strftime('%a, %b %e, %Y')%></p>
-<p><%=@entry.content%></p>
+  <p><%= @entry.date.strftime('%a, %b %e, %Y')%></p>
+  <p><%= @entry.content%></p>
 
-
+<p><%=link_to "Edit this Entry", edit_entry_path%></p>

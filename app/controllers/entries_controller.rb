@@ -1,12 +1,13 @@
 class EntriesController < ApplicationController
+  
     def index 
         @user = current_user
-        @entries = Entry.all
+        @entries = current_user.entries.all
     end
 
     def show
         @entry = Entry.find_by(id: params[:id])
-        @topic = Topic.
+        
     end
 
     def new
@@ -21,7 +22,6 @@ class EntriesController < ApplicationController
         redirect_to entry_path(@entry)
       else 
         render :new
-        
       end
     end
 
@@ -30,13 +30,19 @@ class EntriesController < ApplicationController
     end
 
     def update
-      @entry = Entry.update(entry_params)
-      if @entry.save
+      @entry = Entry.find(params[:id])
+
+      if @entry.update(entry_params)
+      
       redirect_to entry_path(@entry)
+
+      else
+        render :edit
       end
     end
 
     def destroy
+      
     end
 
     private
