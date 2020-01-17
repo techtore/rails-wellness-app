@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
     def index 
         @user = current_user
-        @entries = Entries.all
+        @entries = Entry.all
     end
 
     def show
