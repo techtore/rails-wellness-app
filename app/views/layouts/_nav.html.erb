@@ -6,6 +6,6 @@
       <%= link_to "Login", new_user_session_path %>
     <% else %>
       <%= current_user.name %></li>
-      <%=link_to "Add a new Entry", new_topic_path%>
+      <%=link_to "Add a new Topic", new_topic_path%>
       <%= link_to 'Logout', destroy_user_session_path, method: "delete" %>
     <% end %>

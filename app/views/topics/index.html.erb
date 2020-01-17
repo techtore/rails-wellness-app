@@ -1,5 +1,7 @@
 <h1>Topics</h1>
 
 <%@topics.each do |topic|%>
-<li><%=link_to topic.title, topic_path %></li>
+<%if !topic.title.nil?%>
+<li><%=link_to topic.title, topic_path(topic) %></li>
+<%end%>
 <%end%>

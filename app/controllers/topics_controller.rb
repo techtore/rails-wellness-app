@@ -5,7 +5,8 @@ class TopicsController < ApplicationController
 
     def show
         @topic = Topic.find_by(id: params[:id])
-        @entries = @topic.entries.all
+        @entries = current_user.entries.my_entries 
+        #add scope method for my entries in this topic
     end
 
     def new
@@ -19,12 +20,6 @@ class TopicsController < ApplicationController
        else 
         render :new
        end
-    end
-
-    def edit
-    end
-
-    def update
     end
 
     private

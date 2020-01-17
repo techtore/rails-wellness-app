@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
     end
 
     def new
-        @topic = Topic.find_by(topic_id: params[:topic_id])
+        @topic = Topic.find_by(id: params[:id])
         @entry = Entry.new
         @entry.build_topic
     end
@@ -18,7 +18,6 @@ class EntriesController < ApplicationController
       @entry = Entry.new(entry_params)
       if @entry.save
         redirect_to entry_path(@entry)
-        binding.pry
       else 
         render :new
         
