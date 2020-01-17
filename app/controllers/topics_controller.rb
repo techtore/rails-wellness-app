@@ -1,13 +1,7 @@
 class TopicsController < ApplicationController
 
     def index
-        if current_user
-            @topics = Topic.all
-        end
-    end
-
-    def show
-      @topic = Topic.find_by(id: params[:id])
+        @topics = Topic.select('DISTINCT title')
     end
 
     def new

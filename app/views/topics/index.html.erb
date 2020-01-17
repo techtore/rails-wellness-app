@@ -1,3 +1,4 @@
-<%=@topics.each do |topic|%>
-<%= link_to topic.title, topic_path%>
-<%end%>
+
+<% @topics.each do |topic|%>
+        <li><%= link_to topic.title, topic_entries_path(topic)%></li>
+    <%end%>
