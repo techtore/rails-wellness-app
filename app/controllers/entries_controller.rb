@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
     end
 
     def new
-        @topic = Topic.find_by(id: params[:id])
+        @topic = Topic.find_by(topic_id: params[:topic_id])
         @entry = Entry.new
         @entry.build_topic
     end
