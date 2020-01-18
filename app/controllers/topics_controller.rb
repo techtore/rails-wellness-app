@@ -1,12 +1,12 @@
 class TopicsController < ApplicationController
     def index
-        @topics = Topic.all
+        @topics = Topic.order_by_title
     end
 
     def show
         @topic = Topic.find_by(id: params[:id])
         @entries = current_user.entries.my_entries 
-        #add scope method for my entries in this topic
+        
     end 
 
     def new
