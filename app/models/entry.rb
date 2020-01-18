@@ -4,5 +4,5 @@ class Entry < ApplicationRecord
     accepts_nested_attributes_for :topic, reject_if: :all_blank
     validates :date, presence: :true
     validates :content, presence: :true
-    scope :my_entries, ->{where(topic_id: "topic.id")}
+    # scope :keyword
 end

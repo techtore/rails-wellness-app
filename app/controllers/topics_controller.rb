@@ -5,8 +5,7 @@ class TopicsController < ApplicationController
 
     def show
         @topic = Topic.find_by(id: params[:id])
-        @entries = current_user.entries.my_entries 
-        
+        @entries = current_user.entries.my_entries  
     end 
 
     def new

@@ -1,6 +1,7 @@
 <h1><%= @user.name%>'s Entries by Date</h1>
-
+   
     <% @entries.each do |entry|%>
-        <li><%=entry.topic.title%> - <%=entry.try(:date).try(strftime: '%a, %b %e, %Y')%> </li>
-<%end%>
+        <li><%=entry.topic.title%> - <%= link_to entry&.date&.strftime('%a, %b %e, %Y'), entry_path(entry)%> </li>
+    <%end%>
+    
 

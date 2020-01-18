@@ -5,6 +5,7 @@ class Topic < ApplicationRecord
     validates :title, :presence => true, :uniqueness => true 
 
     scope :order_by_title, -> { order('title') }
+   
     # validates :topic_id, uniqueness: { scope: :user_id }
    
 end

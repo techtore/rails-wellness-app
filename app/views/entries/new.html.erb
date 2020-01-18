@@ -1,3 +1,31 @@
 <h1>Create New Entry</h1>
-  <%=render 'form'%>
+ <%= form_for @entry do |f|%>
+
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this Entry from being saved:</h2>
+      <ul>
+        <% @entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :topic_id%>
+  <%= f.label :date%>
+        <%= f.date_field :date%><br>
+        <%= f.label :content%>
+        <%= f.text_area :content%><br>
+        <p>Select a Topic that already exists</p>
+        <%=f.collection_select :topic_id, Topic.all, :id, :title %><br>
+
+        <p>Or create a new Topic</p>
+        <%=f.fields_for :topic do |topic_form|%>
+            <%= topic_form.label :title%>
+            <%=topic_form.text_field :title%><br>
+    <%end%>
+<%= f.submit%>
+<%end%>>
 

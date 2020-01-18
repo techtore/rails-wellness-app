@@ -6,17 +6,17 @@ class EntriesController < ApplicationController
     end
 
     def show
-        @entry = Entry.find_by(id: params[:id]) 
+        @entry = current_user.entries.find_by(id: params[:id]) 
     end
 
     def new
         @topic = Topic.find_by(id: params[:id])
-        @entry = Entry.new
+        @entry = current_user.entries.build
         @entry.build_topic
     end
 
     def create
-      @entry = Entry.new(entry_params)
+      @entry = current_user.entries.build(entry_params)
       if @entry.save
         redirect_to topic_entry_path(@entry.topic, @entry)
       else 
@@ -25,11 +25,11 @@ class EntriesController < ApplicationController
     end
 
     def edit
-      @entry = Entry.find_by(id: params[:id])
+      @entry = current_user.entries.find_by(id: params[:id])
     end
 
     def update
-      @entry = Entry.find(params[:id])
+      @entry = current_user.entries.find(params[:id])
 
       if @entry.update(entry_params)
       
@@ -41,9 +41,8 @@ class EntriesController < ApplicationController
     end
 
     def destroy
-      @entry = Entry.find_by(id: params[:id])
+      @entry = current_user.entries.find_by(id: params[:id])
       @entry.destroy 
-      flash[:notice] = "Entry deleted."
 
       redirect_to entries_path(@entry)
     end
