@@ -43,6 +43,7 @@ class EntriesController < ApplicationController
     def destroy
       @entry = Entry.find_by(id: params[:id])
       @entry.destroy 
+      flash[:notice] = "Entry deleted."
 
       redirect_to entries_path(@entry)
     end
