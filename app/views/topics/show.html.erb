@@ -3,6 +3,7 @@
 <% @topic.entries.each do |entry|%>
     <p><%=entry.date.strftime('%a, %b %e, %Y')%></p>
     <p><%=entry.content%></p>
+    <p><%=entry.keyword%></p>
 <%end%>
 
 <%=link_to "Add a New Entry for this Topic", new_topic_entry_path(@topic)%>
