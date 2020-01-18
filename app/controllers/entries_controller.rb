@@ -49,7 +49,7 @@ class EntriesController < ApplicationController
 
     private
     def entry_params
-        params.require(:entry).permit(:date, :content, :entry_id, :topic_id, :user_id, 
+        params.require(:entry).permit(:date, :content, :keyword, :entry_id, :topic_id, :user_id, 
             topic_attributes:[:title])
     end
 end
