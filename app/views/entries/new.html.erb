@@ -1,14 +1,5 @@
 <h1>Create an Entry</h1>
-  <% if @entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this Entry from being saved:</h2>
-      <ul>
-        <% @entry.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+ 
 <%= form_for @entry do |f|%>
 <%= f.hidden_field :user_id, value: current_user.id %>
 <%= f.hidden_field :topic_id%>
