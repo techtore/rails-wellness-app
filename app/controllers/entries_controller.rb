@@ -1,5 +1,8 @@
 class EntriesController < ApplicationController
   
+    def search 
+    end
+    
     def index 
       @user = current_user
       if params[:search]
