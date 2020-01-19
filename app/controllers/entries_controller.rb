@@ -1,8 +1,14 @@
 class EntriesController < ApplicationController
   
     def index 
-        @user = current_user
-        @entries = current_user.entries.all
+      @user = current_user
+      if params[:search]
+        @entries = current_user.entries.searched(params[:search])
+     
+      else
+        @entries = current_user.entries
+      end
+        
     end
 
     def show

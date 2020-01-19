@@ -20,8 +20,6 @@
         <%= f.text_area :content%><br>
         <%= f.label :keyword%>
         <%= f.text_field :keyword%><br>
-         <%= f.label :keyword%>
-        <%= f.text_field :keyword%><br>
         <p>Select a Topic that already exists</p>
         <%=f.collection_select :topic_id, Topic.all, :id, :title %><br>
 

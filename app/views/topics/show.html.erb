@@ -1,6 +1,7 @@
 <h1><%=@topic.title%></h1>
 
 <% @topic.entries.each do |entry|%>
+    
     <p><%=entry.date.strftime('%a, %b %e, %Y')%></p>
     <p><%=entry.content%></p>
     <p><%=entry.keyword%></p>

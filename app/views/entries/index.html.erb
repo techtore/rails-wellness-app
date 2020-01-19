@@ -7,7 +7,7 @@
 
 
     <% @entries.each do |entry|%>
-        <li><%=entry.topic.title%> - <%= link_to entry&.date&.strftime('%a, %b %e, %Y'), entry_path(entry)%> - <%= entry.keyword%></li>
+        <li><%=entry.topic.title%> - <%= link_to entry&.date&.strftime('%a, %b %e, %Y'), entry_path(entry)%> - Keyword: <%= entry.keyword%></li>
     <%end%>
    
    

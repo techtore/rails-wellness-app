@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
 
     def show
         @topic = Topic.find_by(id: params[:id])
-        @entries = current_user.entries.my_entries  
+        @entries = current_user.entries  
     end 
 
     def new
@@ -23,6 +23,6 @@ class TopicsController < ApplicationController
 
     private
     def topic_params
-        params.require(:topic).permit(:title, :topic_id, entries_attributes:[:date, :content, :topic_id, :user_id])
+        params.require(:topic).permit(:title, :topic_id, entries_attributes:[:date, :content, :keyword, :topic_id, :user_id])
     end
 end
