@@ -1,4 +1,4 @@
-<h1><%= @user.name%>'s Entries by Date</h1>
+<h2><%= @user.name%>'s Entries by Date: </h2>
 
     <%= form_tag keyword_search_path, :method => 'get' do %>    
         <p><%= text_field_tag :search, params[:search] %>   
