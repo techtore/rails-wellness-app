@@ -1,5 +1,9 @@
-  <p><%= @entry.date.strftime('%a, %b %e, %Y')%></p>
+  <h2><%= @entry.date.strftime('%a, %b %e, %Y')%></h2>
+  <h3> <%=@entry.topic.title%> </h3>
+  <label><strong>Content:</strong></label>
   <p><%= @entry.content%></p>
+  <label><strong>Keyword:</strong></label>
+  <p> <%=@entry.keyword%> </p>
 
 <p><%=link_to "Edit this Entry", edit_entry_path%></p>
 <%= button_to "Delete Entry", @entry, :method => :delete %>

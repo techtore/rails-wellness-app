@@ -6,6 +6,16 @@
     <% end %>
 
     <% @entries.each do |entry|%>
+      <% if @entries.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entries.errors.count, "error") %> prohibited this Entry from being saved:</h2>
+      <ul>
+        <% @entries.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
         <h3> For <%=entry.keyword%> you have the following entries:</h3>
         <h4><%=entry.date.strftime('%a, %b %e, %Y')%></h4>
         <h5><%=entry.topic.title%></h5>

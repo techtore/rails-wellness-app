@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
     def index
-        @topics = Topic.order_by_title
+        @topics = Topic.order(:title)
     end
 
     def show
@@ -13,9 +13,10 @@ class TopicsController < ApplicationController
     end 
 
     def create
-       topic = Topic.new(topic_params)
-       if topic.save
-        redirect_to topic  
+       @topic = Topic.new(topic_params)
+       if @topic.valid?
+        @topic.save
+        redirect_to @topic  
        else 
         # topic.present?
         #     flash[:notice] = "Topic all ready exists "
