@@ -1,10 +1,10 @@
 <h1><%= @user.name%>'s Entries by Date</h1>
 
-    <%= form_tag entries_path, :method => 'get' do %>    
+    <%= form_tag keyword_search_path, :method => 'get' do %>    
         <p><%= text_field_tag :search, params[:search] %>   
         <%= submit_tag "Search", name: nil %></p>
     <% end %>
-    
+
     <% @entries.each do |entry|%>
         <li><%=entry.topic.title%> - <%= link_to entry&.date&.strftime('%a, %b %e, %Y'), entry_path(entry)%> - Keyword: <%= entry.keyword%></li>
     <%end%>

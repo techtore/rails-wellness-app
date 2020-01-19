@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "application#home"
 
-  get 'keyword/search', to: 'keyword#search', as: 'keyword_search'
+  get 'entries/keyword_search', to: 'entries#search', as: 'keyword_search'
 
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
   devise_scope :user do 

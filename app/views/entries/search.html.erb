@@ -4,3 +4,11 @@
         <p><%= text_field_tag :search, params[:search] %>   
         <%= submit_tag "Search", name: nil %></p>
     <% end %>
+
+    <% @entries.each do |entry|%>
+        <h3> For <%=entry.keyword%> you have the following entries:</h3>
+        <h4><%=entry.date.strftime('%a, %b %e, %Y')%></h4>
+        <h5><%=entry.topic.title%></h5>
+        <p><%=entry.content%></p> 
+    <%end%>
+
