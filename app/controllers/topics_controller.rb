@@ -17,6 +17,9 @@ class TopicsController < ApplicationController
        if topic.save
         redirect_to topic  
        else 
+        # topic.present?
+        #     flash[:notice] = "Topic all ready exists "
+
         render :new
        end
     end
