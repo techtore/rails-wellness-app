@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
-  
+  before_action :authenticate_user!
+
     def search 
       if params[:search]
         @entries = current_user.entries.searched(params[:search])
