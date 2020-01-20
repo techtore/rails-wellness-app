@@ -21,8 +21,9 @@
         <p>Add a keyword to make your entry searchable:</p>
         <%= f.label :keyword%>
         <%= f.text_field :keyword%><br>
+
         <p>Select a Topic that already exists:</p>
-        <%=f.collection_select :topic_id, Topic.all, :id, :title %><br>
+        <%=f.collection_select :topic_id, Topic.all, :id, :title, :include_blank => true %><br>
 
         <p>Or create a new Topic:</p>
         <%=f.fields_for :topic do |topic_form|%>

@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :entries
   has_many :topics, through: :entries
   accepts_nested_attributes_for :topics 
+  validates :name, :presence => true
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
