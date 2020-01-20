@@ -24,6 +24,7 @@ Set up a .env file in the root directory.
 Include:
 
 GITHUB_KEY=YOUR_KEY 
+
 GITHUB_SECRET=YOUR_SECRET_KEY
 
 add .env to your .gitignore file to keep your Key and Secret protected
