@@ -19,8 +19,12 @@ rails s
 Navigate to the browser and type in:
 http://localhost:3000
 
+#Omniauth-Github 
+Set up a .env file in the root directory. 
+export GITHUB_KEY=YOUR_KEY 
+export GITHUB_SECRET=YOUR_SECRET_KEY
 
- License:
+ #License:
 
 This project is available as open source under the terms of the MIT License.
 
