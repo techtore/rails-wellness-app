@@ -1,24 +1,9 @@
-<h2>Search Entries for Keywords</h2>
-
-    <%= form_tag entries_path, :method => 'get' do %>    
-        <p><%= text_field_tag :search, params[:search] %>   
-        <%= submit_tag "Search", name: nil %></p>
-    <% end %>
 
     <% @entries.each do |entry|%>
-    <% if !@entries.keyword.present? %>
-        <div id="error_explanation">
-            <h3>You don't have an entry with that keyword associated.</h3>
-            <ul>
-                <% @entries.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-            </ul>
-            <%end%>
-    </div>
-        <h3> For <%=entry.keyword%> you have the following entries:</h3>
+        <h2> For <%=entry.keyword%> you have the following entries:</h2>
         <h4><%=entry.date.strftime('%a, %b %e, %Y')%></h4>
         <h5><%=entry.topic.title%></h5>
-        <p><%=entry.content%></p> 
+        <p><%=entry.content%></p>  
     <%end%>
+       
 
