@@ -21,10 +21,14 @@ http://localhost:3000
 
 #Omniauth-Github 
 Set up a .env file in the root directory. 
-export GITHUB_KEY=YOUR_KEY 
-export GITHUB_SECRET=YOUR_SECRET_KEY
+Include:
 
- #License:
+GITHUB_KEY=YOUR_KEY 
+GITHUB_SECRET=YOUR_SECRET_KEY
+
+add .env to your .gitignore file to keep your Key and Secret protected
+
+#License:
 
 This project is available as open source under the terms of the MIT License.
 
