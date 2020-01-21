@@ -1,7 +1,7 @@
 <h2><%= @user.name%>'s Entries by Date: </h2>
 
     <% @entries.each do |entry|%>
-        <li><%=entry.topic.title%> - <%= link_to entry&.date&.strftime('%a, %b %e, %Y'), entry_path(entry)%></li>
+        <li><%=entry.topic.title%> - <%= link_to entry&.date&.strftime('%a, %b %e, %Y'), topic_entry_path(entry.topic, entry)%></li>
     <%end%>
 
     <h3>Looking for an entry containing a specific keyword?</h3>
