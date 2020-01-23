@@ -61,4 +61,5 @@ class EntriesController < ApplicationController
         params.require(:entry).permit(:date, :content, :keyword, :entry_id, :topic_id, :user_id, 
             topic_attributes:[:title])
     end
+    
 end
