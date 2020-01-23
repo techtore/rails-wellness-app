@@ -33,3 +33,11 @@ add .env to your .gitignore file to keep your Key and Secret protected
 
 This project is available as open source under the terms of the MIT License.
 
+<p>Select a Topic that already exists:</p>
+        <%=f.collection_select :topic_id, Topic.all, :id, :title, :include_blank => true %><br>
+
+        <p>Or create a new Topic:</p>
+        <%=f.fields_for :topic do |topic_form|%>
+            <%= topic_form.label :title%>
+            <%=topic_form.text_field :title%><br>
+    <%end%>

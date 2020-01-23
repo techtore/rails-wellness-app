@@ -7,7 +7,8 @@ class TopicsController < ApplicationController
 
     def show
         @topic = Topic.find_by(id: params[:id])
-        @entries = current_user.entries  
+        binding.pry
+        @entries = @topic.entries.mine  
     end 
 
     def new

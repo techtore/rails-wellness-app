@@ -15,17 +15,18 @@ class EntriesController < ApplicationController
     end
 
     def show
-        @entry = current_user.entries.find_by(id: params[:id]) 
+      @entry = current_user.entries.find_by(id: params[:id]) 
     end
 
-    def new
-        @topic = Topic.find_by(id: params[:id])
-        @entry = current_user.entries.build
-        @entry.build_topic
+    def new 
+      @topic = Topic.find_by(id: params[:topic_id]) 
+      @entry = current_user.entries.build
     end
 
     def create
+      @topic = Topic.find_by(id: params[:topic_id])
       @entry = current_user.entries.build(entry_params)
+      @entry.topic = @topic
       if @entry.save
         redirect_to topic_entry_path(@entry.topic, @entry)
       else 
@@ -58,7 +59,7 @@ class EntriesController < ApplicationController
 
     private
     def entry_params
-        params.require(:entry).permit(:date, :content, :keyword, :entry_id, :topic_id, :user_id, 
+        params.require(:entry).permit(:date, :content, :keyword, :topic_id, :user_id, 
             topic_attributes:[:title])
     end
     

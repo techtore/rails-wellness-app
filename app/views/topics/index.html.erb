@@ -2,7 +2,7 @@
 
 <%@topics.each do |topic|%>
 <%if !topic.title.nil?%>
-<li><%=topic.title%></li>
+<li><%=topic.title%> - <%= link_to "Add Entry for this topic", new_topic_entry_path(topic)%></li>
     <%end%>
 <%end%>
 

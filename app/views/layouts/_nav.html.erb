@@ -9,6 +9,5 @@
       <%=link_to "Browse Topics", topics_path%>
       <%=link_to "Add a new Topic", new_topic_path%>
       <%= link_to "My Entries", entries_path%>
-      <%= link_to "Add a New Entry", new_topic_entry_path(:topic_id) %>
       <%= link_to 'Logout', destroy_user_session_path, method: "delete" %>
     <% end %>

@@ -5,5 +5,5 @@ class Entry < ApplicationRecord
     validates :date, presence: :true
     validates :content, presence: :true
     scope :searched, ->(key_word) {where("keyword LIKE ?", "%#{key_word}%")}
-  
+    scope :mine, -> {where("user_id == ? ", "current_user.id")}
 end
