@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_entry, only: [:show, :edit, :update, :destroy ]
 
     def search 
       if params[:search]
@@ -35,12 +36,9 @@ class EntriesController < ApplicationController
     end
 
     def edit
-      @entry = current_user.entries.find_by(id: params[:id])
     end
 
     def update
-      @entry = current_user.entries.find(params[:id])
-
       if @entry.update(entry_params)
       
       redirect_to entry_path(@entry)
@@ -51,7 +49,6 @@ class EntriesController < ApplicationController
     end
 
     def destroy
-      @entry = current_user.entries.find_by(id: params[:id])
       @entry.destroy 
 
       redirect_to entries_path(@entry)
@@ -61,6 +58,10 @@ class EntriesController < ApplicationController
     def entry_params
         params.require(:entry).permit(:date, :content, :keyword, :topic_id, :user_id, 
             topic_attributes:[:title])
+    end
+
+    def set_entry
+      @entry = current_user.entries.find_by(id: params[:id])
     end
     
 end
