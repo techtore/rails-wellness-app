@@ -5,6 +5,10 @@ class TopicsController < ApplicationController
         @topics = Topic.order(:title)
     end
 
+    def reverse_order
+        @topics = Topic.order(title: :desc)
+    end
+
     def show
         @topic = Topic.find_by(id: params[:id])
         @entries = @topic.entries.mine  

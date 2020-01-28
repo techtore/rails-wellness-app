@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root "application#home"
 
   get 'entries/keyword_search', to: 'entries#search', as: 'keyword_search'
-
+  get 'topics/reverse_order', to: 'topics#reverse_order', as: 'reverse_order'
+  
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
   devise_scope :user do 
     get 'login', to: "devise/sessions#new"

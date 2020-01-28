@@ -33,3 +33,5 @@ add .env to your .gitignore file to keep your Key and Secret protected
 
 This project is available as open source under the terms of the MIT License.
 
+<!-- protect against SQL injections -->
+  <!-- scope :searched, ->(key_word) {where("keyword LIKE ?", "%#{sanitize_sql_like(key_word)}%")} --> 
